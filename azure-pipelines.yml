@@ -1,0 +1,31 @@
+trigger:
+- master
+
+pool:
+- vmImage: 'windows-2019'
+
+name: 1.0$(Rev:.r)
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
+  inputs:
+    command: 'test'
+    projects: '**/*Tests.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/EL.Testing.csproj'
+    versioningScheme: 'byBuildNumber'
+
+- task: NuGetCommand@2
+  displayName: 'Publish'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '2ee1cde5-9787-4e91-b498-e30a43c5d914'
