@@ -25,6 +25,24 @@ namespace EL.Testing.UnitTests
         }
     }
 
+    public class With_an_automocked_class_with_constructor_dependencies : With_an_automocked<ClassWithConstructorDependencies>
+    {
+        [Test]
+        public void Should_be_able_to_mock_things_before_constructing()
+        {
+            GetMock<ITestInterface>().Setup(x => x.GetIntValue()).Returns(42);
+            var result = ClassUnderTest.Value;
+            Assert.That(result, Is.EqualTo(42));
+        }
+
+        [Test]
+        public void Should_get_a_new_mock_every_time()
+        {
+            var result = ClassUnderTest.Value;
+            Assert.That(result, Is.EqualTo(0));
+        }
+    }
+
     public class ClassWithDependencies
     {
         private readonly ITestInterface testInterface;
@@ -42,5 +60,15 @@ namespace EL.Testing.UnitTests
     {
         int GetIntValue();
         void ReceiveStringValue(string stringValue);
+    }
+
+    public class ClassWithConstructorDependencies
+    {
+        public ClassWithConstructorDependencies(ITestInterface testInterface)
+        {
+            Value = testInterface.GetIntValue();
+        }
+
+        public int Value { get; private set; }
     }
 }

@@ -15,10 +15,16 @@ namespace EL.Testing
         public void WithAnAutoMockedSetup()
         {
             mocker = new AutoMoqer();
-            ClassUnderTest = mocker.Create<T>();
         }
 
-        protected T ClassUnderTest { get; private set; }
+        [TearDown]
+        public void TearDown()
+        {
+            classUnderTest = default;
+        }
+
+        private T classUnderTest;
+        protected T ClassUnderTest => classUnderTest ??= mocker.Create<T>();
 
         protected Mock<TMock> GetMock<TMock>() where TMock : class
         {
