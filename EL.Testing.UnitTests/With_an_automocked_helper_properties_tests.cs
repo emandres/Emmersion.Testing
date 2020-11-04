@@ -7,8 +7,8 @@ namespace EL.Testing.UnitTests
         [Test]
         public void When_generating_multiple_random_strings()
         {
-            var firstRandomString = RandomString;
-            var secondRandomString = RandomString;
+            var firstRandomString = RandomString();
+            var secondRandomString = RandomString();
 
             Assert.That(firstRandomString, Is.Not.EqualTo(secondRandomString));
         }
@@ -16,8 +16,8 @@ namespace EL.Testing.UnitTests
         [Test]
         public void When_generating_multiple_guids()
         {
-            var firstGuid = NewGuid;
-            var secondGuid = NewGuid;
+            var firstGuid = NewGuid();
+            var secondGuid = NewGuid();
 
             Assert.That(firstGuid, Is.Not.EqualTo(secondGuid));
         }

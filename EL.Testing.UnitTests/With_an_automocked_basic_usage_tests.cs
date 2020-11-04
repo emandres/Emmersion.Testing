@@ -17,7 +17,7 @@ namespace EL.Testing.UnitTests
         [Test]
         public void When_verifying_mock()
         {
-            var stringValue = RandomString;
+            var stringValue = RandomString();
 
             ClassUnderTest.ReceiveStringValue(stringValue);
 

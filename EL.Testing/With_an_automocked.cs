@@ -35,8 +35,8 @@ namespace EL.Testing
             return It.Is<List<TAny>>(x => x.SequenceEqual(collection));
         }
 
-        protected Guid NewGuid => Guid.NewGuid();
+        protected Guid NewGuid() => Guid.NewGuid();
 
-        protected string RandomString => Guid.NewGuid().ToString();
+        protected string RandomString() => Guid.NewGuid().ToString();
     }
 }
