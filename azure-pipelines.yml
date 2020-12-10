@@ -1,5 +1,12 @@
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+      - .gitignore
+      - README.md
 
 pool:
   vmImage: 'windows-2019'
