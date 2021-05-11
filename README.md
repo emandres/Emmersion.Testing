@@ -17,3 +17,7 @@ A library for making testing easier.
     - Guid.NetGuid().ToString() -> RandomString()
     - Verifies with Times.Never -> VerifyNever(...)
 - Remove Moq
+
+# Version History
+- 1.0 - Initial release
+- 2.0 - Target `netstandard2.1` instead of `netstandard2.0`

@@ -11,7 +11,7 @@ trigger:
 pool:
   vmImage: 'windows-2019'
 
-name: 1.0$(Rev:.r)
+name: 2.0$(Rev:.r)
 
 steps:
 - task: NuGetToolInstaller@1
