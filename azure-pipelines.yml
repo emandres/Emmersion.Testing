@@ -26,7 +26,7 @@ steps:
   displayName: 'Package'
   inputs:
     command: 'pack'
-    packagesToPack: '**/EL.Testing.csproj'
+    packagesToPack: '**/Emmersion.Testing.csproj'
     versioningScheme: 'byBuildNumber'
 
 - task: NuGetCommand@2
