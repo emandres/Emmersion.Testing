@@ -37,14 +37,12 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '2ee1cde5-9787-4e91-b498-e30a43c5d914'
 
-- task: NuGetAuthenticate@0
-  displayName: 'Authenticate nuget.org'
-  inputs:
-    nuGetServiceConnections: 'nuget.org publishing'
-
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'Publish to nuget.org'
   inputs:
-    command: push
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: external
+    command: custom
+    custom: nuget
+    arguments: >
+      push $(Build.ArtifactStagingDirectory)/**/*.nupkg
+      -s https://api.nuget.org/v3/index.json
+      -k $(NuGetApiKey)
