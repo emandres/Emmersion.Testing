@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace EL.Testing.UnitTests
+namespace Emmersion.Testing.UnitTests
 {
     public class With_an_automocked_basic_usage_tests : With_an_automocked<ClassWithDependencies>
     {

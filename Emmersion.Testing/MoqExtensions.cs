@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Moq;
 
-namespace EL.Testing
+namespace Emmersion.Testing
 {
     public static class MoqExtensions
     {

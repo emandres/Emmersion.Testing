@@ -5,7 +5,7 @@ using AutoMoqCore;
 using Moq;
 using NUnit.Framework;
 
-namespace EL.Testing
+namespace Emmersion.Testing
 {
     public class With_an_automocked<T>
     {

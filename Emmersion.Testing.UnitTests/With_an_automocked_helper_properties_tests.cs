@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace EL.Testing.UnitTests
+namespace Emmersion.Testing.UnitTests
 {
     public class With_an_automocked_helper_properties_tests : With_an_automocked<With_an_automocked_helper_properties_tests>
     {
