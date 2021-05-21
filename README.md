@@ -2,6 +2,9 @@
 
 A library for making Moq-based ("London style") unit-testing with NUnit easier.
 
+This has been [open sourced](https://github.com/emmersion/engineering-at-emmersion)
+under the [MIT License](./LICENSE).
+
 
 ## Usage
 
@@ -41,6 +44,7 @@ public class ExampleWorkflowTests : With_an_automocked<ExampleWorkflow>
     - Guid.NetGuid().ToString() -> RandomString()
     - Verifies with Times.Never -> VerifyNever(...)
 - Remove Moq
+
 
 # Version History
 - 3.0 - Change namespace from `EL.` to `Emmersion.`
