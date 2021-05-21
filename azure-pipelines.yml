@@ -13,6 +13,9 @@ pool:
 
 name: 3.0$(Rev:.r)
 
+variables:
+  - group: 'NuGetPublishing'
+
 steps:
 - task: NuGetToolInstaller@1
 
@@ -45,4 +48,4 @@ steps:
     arguments: >
       push $(Build.ArtifactStagingDirectory)/**/*.nupkg
       -s https://api.nuget.org/v3/index.json
-      -k $(NuGetApiKey)
+      -k $(NuGetPublishingApiKey)
