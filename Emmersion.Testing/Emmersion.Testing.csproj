@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>8</LangVersion>
+    <Company>Emmersion</Company>
+    <Description>A library for making Moq-based ("London style") unit-testing with NUnit easier.</Description>
+    <Copyright>Copyright (c) 2021 Emmersion</Copyright>
+    <PackageLicenseUrl>https://github.com/emmersion/Emmersion.Testing/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/emmersion/Emmersion.Testing</PackageProjectUrl>
+    <PackageTags>testing;unit;mocking;automoq;moq;nunit</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
