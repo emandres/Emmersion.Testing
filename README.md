@@ -2,7 +2,7 @@
 
 A library for making Moq-based ("London style") unit-testing with NUnit easier.
 
-This has been [open sourced](https://github.com/emmersion/engineering-at-emmersion)
+This has been [open sourced](https://github.com/emmersion/engineering-at-emmersion#open-source)
 under the [MIT License](./LICENSE).
 
 
