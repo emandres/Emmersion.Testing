@@ -44,5 +44,11 @@ namespace Emmersion.Testing
         protected Guid NewGuid() => Guid.NewGuid();
 
         protected string RandomString() => Guid.NewGuid().ToString();
+
+        protected TimeSpan Seconds(int seconds) => TimeSpan.FromSeconds(seconds);
+        
+        protected DateTimeOffset PastDate(int daysInPast) => DateTimeOffset.UtcNow.AddDays(-daysInPast);
+        
+        protected DateTimeOffset FutureDate(int daysInFuture) => DateTimeOffset.UtcNow.AddDays(daysInFuture);
     }
 }

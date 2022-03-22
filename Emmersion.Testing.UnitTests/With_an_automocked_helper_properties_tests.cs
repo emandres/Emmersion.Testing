@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace Emmersion.Testing.UnitTests
@@ -20,6 +21,40 @@ namespace Emmersion.Testing.UnitTests
             var secondGuid = NewGuid();
 
             Assert.That(firstGuid, Is.Not.EqualTo(secondGuid));
+        }
+
+        [Test]
+        public void When_generating_timespan()
+        {
+            var timespan = Seconds(5);
+
+            Assert.That(timespan, Is.EqualTo(TimeSpan.FromSeconds(5)));
+
+            var date1 = DateTimeOffset.UtcNow;
+            var date2 = DateTimeOffset.UtcNow.AddSeconds(1);
+            Assert.That(date1, Is.EqualTo(date2).Within(Seconds(2)));
+        }
+
+        [Test]
+        public void When_generating_past_date()
+        {
+            var pastDate = PastDate(1);
+            
+            Assert.That(pastDate, Is.EqualTo(DateTimeOffset.UtcNow.AddDays(-1)).Within(TimeSpan.FromSeconds(2)));
+            
+            var currentDate = DateTimeOffset.UtcNow;
+            Assert.That(pastDate, Is.LessThan(currentDate));
+        }
+
+        [Test]
+        public void When_generating_future_date()
+        {
+            var futureDate = FutureDate(1);
+            
+            Assert.That(futureDate, Is.EqualTo(DateTimeOffset.UtcNow.AddDays(1)).Within(TimeSpan.FromSeconds(2)));
+
+            var currentDate = DateTimeOffset.UtcNow;
+            Assert.That(futureDate, Is.GreaterThan(currentDate));
         }
     }
 }
