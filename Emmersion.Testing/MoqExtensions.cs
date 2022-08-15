@@ -17,5 +17,18 @@ namespace Emmersion.Testing
         {
             mock.Verify(expression, Times.Never);
         }
+        
+        public static IReturnsResult<TMock> ReturnsNull<TMock, TResult>(this ISetup<TMock, TResult> mock)
+            where TMock : class
+        {
+            return mock.Returns<TResult>(null);   
+        }
+
+        public static IReturnsResult<TMock> ReturnsNullAsync<TMock, TResult>(this ISetup<TMock, Task<TResult>> mock)
+            where TMock : class 
+            where TResult: class
+        {
+            return mock.ReturnsAsync((TResult)null);
+        }
     }
 }
